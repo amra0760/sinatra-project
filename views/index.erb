@@ -3,24 +3,65 @@
   <head>
     <meta charset="UTF-8">
     <meta name ="viewport" content="width=device-width, intial-scale=1">
-    <title>title</title>
-    <!-- bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Sinatra App</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+        
     <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <!-- custom JS -->
     <script src="js/script.js"></script>
   </head>
   <body>
     
-    <div class="container-fluid">
-      <h1>Hello World!</h1>
-    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top text-white">
+      <div class="container">
+        <a class="navbar-brand" >Cravings©</a>
+      </div>
+    </nav>
+    
+    
+     <header class="masthead text-center text-white" id="header">
+      <div>
+      <div class="masthead-content">
+        <div class="container">
+                <h1 class="mb-5">What are you CRAVING?</h1>
+              </div>
+              <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <form method="POST" action="/result">
+                  <div class="form-row">
+                    <div class="col-12">
+                      <input type="text" class="form-control form-control-lg form-text" placeholder="Enter a Food..." name="food">
+                      <input type="text" class="form-control form-control-lg form-text" placeholder="Enter your City or Zip Code..." name="location">
+                      <br>
+                    </div>
+                    <div class="col-xs-12 col-sm-12">
+                      <button type="submit" class="btn btn-block btn-lg btn-primary form-text" value="submit">Find Me A Restaurant!</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </header>
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     
   </body>
 </html>
