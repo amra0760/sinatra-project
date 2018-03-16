@@ -4,23 +4,20 @@ require "optparse"
 require "pp"
 require 'net/http' 
 
+
+#Authentication Keys for Yelp and Nutrition API
 YELP_API_KEY = ENV["YELP_API_KEY"]
 NUTRITION_ID= ENV["NUTRITION_CLIENT_ID"]
 NUTRITION_KEY= ENV["NUTRITION_API_KEY"]
 
-# Constants, do not change these
+
+#YELP API
+#Yelp URL Endpoint which returns a hash based on what we want to attain from the Yelp API
 API_HOST = "https://api.yelp.com"
-SEARCH_PATH = "/v3/businesses/search"
-BUSINESS_PATH = "/v3/businesses/"  # trailing / because we append the business id to the path
+SEARCH_PATH = "/v3/businesses/search"#In this app we want to seach for bussiness therefore we are required to use this URL Endpoint
 
 
-DEFAULT_BUSINESS_ID = "yelp-new-york"
-DEFAULT_TERM = "dinner"
-DEFAULT_LOCATION = "New York, NY"
-
-
-
-def search(term, location)
+def search(term, location)#This search method takes two arguments(a food and a Zip Code or City)
   begin
     url = "#{API_HOST}#{SEARCH_PATH}"
     params = {
@@ -28,93 +25,39 @@ def search(term, location)
       location: location,
       
     }
-    response = HTTP.auth("Bearer #{YELP_API_KEY}").get(url, params: params)
+    response = HTTP.auth("Bearer #{YELP_API_KEY}").get(url, params: params)#This authorizes the key holder to get information fromthe Yelp API 
     names=[]
-    final= JSON.parse(response)
-    final["businesses"].each do |business|
+    final= JSON.parse(response)#Turns information transmitted from Yelp APi into JSON(a dta format composed of hashes and/or arrays)
+    final["businesses"].each do |business|#This iteration goes through each bussiness in the the JSON data and takes the name,location, product picture, rating, and "priceiness" of the resturant
       names << [business["name"], business["location"]["display_address"], business["image_url"],  business["rating"], business["price"], business["display_phone"], business["coordinates"]["longitude"] ,business["coordinates"]["latitude"] ]
     end 
-    
-    names
+    names# All the info about the bussiness is composed in here, a double dimension array 
   rescue
-  names<< ["I'm sorry I didn't get that. Can you please refresh the page and try again? Thank you",["Error"]," ","Error","Error","Error"," "]
+  names<< ["I'm sorry I didn't get that. Can you please refresh the page and try again? Thank you",["Error"]," ","Error","Error","Error"," "]#If there are no results from the Yelp API, the user will get this error message
   end
   
 end
 
 
-# def find_food(food)
-#     # begin
-#       url = "https://api.nutritionix.com/v1_1/search/#{food}?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=#{NUTRITION_ID}&appKey=#{NUTRITION_KEY}"
-#       uri = URI(url)
-#       pp response = Net::HTTP.get(uri)
-#       results= JSON.parse(response)
-#       calories=[]
-#       results["hits"].each do |item|
-#           calories<< item["fields"]["nf_calories"]
-#       end 
-#       total=0
-#       calories.each do |calorie|
-#         total+=calorie
-        
-#       end
-#       total/calories.length
-#     # rescue
-#     #   error= "I'm sorry I didn't get that. Can you please refresh the page and try again? Thank you"
-#     #   error
-#     # end
-#   # its not an integer, so i cant put it in the array
-#   # WAIT, why we doing it to the nutrution one? it should be the search thats the thing thats basically running the whol thing
-#   # imma try begin and rescue again
-# end 
 
-def find_food(food)
+#NUTRITION API
+def find_calories(food)
     begin 
-    url = "https://api.nutritionix.com/v1_1/search/#{food}?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=42c566e4&appKey=84e21bd208e3060d6ede92b25eab1cb7"
+    url = "https://api.nutritionix.com/v1_1/search/#{food}?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=42c566e4&appKey=84e21bd208e3060d6ede92b25eab1cb7"#Nutrition URL Endpoint is customized so the type of food the user is requesting from the Yelp APi will also be requested from Nutrition API
     uri = URI(url)
     response = Net::HTTP.get(uri)
-    results= JSON.parse(response)
+    results= JSON.parse(response)#Convert data in JSON Format
     calories=[]
-    results["hits"].each do |item|
+    results["hits"].each do |item|#For each product of the same food, store the amount of calories into the calories array
         calories<< item["fields"]["nf_calories"]
     end 
     total=0
     calories.each do |calorie|
-        total+=calorie
+        total+=calorie#add all the calories together
     end 
-    avg_cal = total/calories.length
-    avg_cal.floor
+    avg_cal = total/calories.length#take the average number of calories per serving  
+    avg_cal.floor#round the decimals to whole number
     rescue
-    avg_cal= "Unknown"
+    avg_cal= "Unknown"#Returns this if caloires in Nutrition API can not be found
     end 
 end 
-
-
-# def run
-#   begin 
-#     #need arguments
-#     search
-#     find_food
-#   rescue
-#     "I'm sorry I didn't get that. Can you please refresh the page and try again? Thank you"
-#   end
-# end
-
-
-# command = ARGV
-
-
-# case command.first
-# when "search"
-#   term = options.fetch(:term, DEFAULT_TERM)
-#   location = options.fetch(:location, DEFAULT_LOCATION)
-
-#   raise "business_id is not a valid parameter for searching" if options.key?(:business_id)
-
-#   response = search(term, location)
-
-#   puts "Found #{response["total"]} businesses. Listing #{SEARCH_LIMIT}:"
-#   response["businesses"].each {|biz| puts biz["name"]}
-# else
-#   puts "Please specify a command: search or lookup"
-# end

@@ -1,3 +1,5 @@
+<!--HTML (Content) for Form page-->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,26 +30,30 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top text-white">
       <div class="container">
-        <a class="navbar-brand" >Cravings©</a>
+        <a class="navbar-brand" >Cravings©</a><!--Creates the title of the nav bar-->
       </div>
     </nav>
     
-    
+    <!-- Header -->
      <header class="masthead text-center text-white" id="header">
       <div>
       <div class="masthead-content">
         <div class="container">
-                <h1 class="mb-5">What are you CRAVING?</h1>
+                <h1 class="mb-5">What are you CRAVING?</h1> <!--Title Question-->
               </div>
               <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <!--Creates form boxes for the user to puts in their response and a submit button-->
                 <form method="POST" action="/result">
                   <div class="form-row">
                     <div class="col-12">
+                      <!--Creates the Food text box-->
                       <input type="text" class="form-control form-control-lg form-text" placeholder="Enter a Food..." name="food">
+                      <!--Creates the Location text box-->
                       <input type="text" class="form-control form-control-lg form-text" placeholder="Enter your City or Zip Code..." name="location">
                       <br>
                     </div>
                     <div class="col-xs-12 col-sm-12">
+                      <!--creates the submit button on the form page titled "Find me a Restaurant!"-->
                       <button type="submit" class="btn btn-block btn-lg btn-primary form-text" value="submit">Find Me A Restaurant!</button>
                     </div>
                   </div>

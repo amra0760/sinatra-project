@@ -1,3 +1,5 @@
+<!--HTML (Content) for Result page-->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -26,10 +28,10 @@
 
   </head>
   <body>
-    
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#header">Cravings©</a>
+        <a class="navbar-brand" href="#header">Cravings©</a><!---->
       </div>
     </nav>
     
@@ -37,8 +39,8 @@
       <div>
       <div class="masthead-content">
         <div class="container">
-          <h1 class="masthead-heading mb-0">Your Results For:</h1>
-          <h2 class="masthead-subheading mb-0"><%= params[:food].capitalize %> Near <%= params[:location] %></h2>
+          <h1 class="masthead-heading mb-0">Your Results For:</h1> <!--Title-->
+          <h2 class="masthead-subheading mb-0"><%= params[:food].capitalize %> Near <%= params[:location] %></h2><!--Uses the user's input as part of the title "Your results for (food) near (location"-->
           <br>
           <h3 class="masthead mb-0"><%= params[:food].capitalize %> Average Calories Per Serving: <%=@calories%> </h3>
           <a href="#results" class="btn btn-primary btn-xl rounded-pill mt-5">Results <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
@@ -50,60 +52,25 @@
       <div class="bg-circle-4 bg-circle"></div>
     </header>
     
-    <!--<form name="calculator" >-->
-    <!--     <table>-->
-    <!--        <tr>-->
-    <!--           <td colspan="4">-->
-    <!--              <input type="text" name="display" id="display" disabled>-->
-    <!--           </td>-->
-    <!--        </tr>-->
-    <!--        <tr>-->
-    <!--           <td><input type="button" name="one" value="1" onclick="calculator.display.value += '1'"></td>-->
-    <!--           <td><input type="button" name="two" value="2" onclick="calculator.display.value += '2'"></td>-->
-    <!--           <td><input type="button" name="three" value="3" onclick="calculator.display.value += '3'"></td>-->
-    <!--           <td><input type="button" class="operator" name="plus" value="+" onclick="calculator.display.value += '+'"></td>-->
-    <!--        </tr>-->
-    <!--        <tr>-->
-    <!--           <td><input type="button" name="four" value="4" onclick="calculator.display.value += '4'"></td>-->
-    <!--           <td><input type="button" name="five" value="5" onclick="calculator.display.value += '5'"></td>-->
-    <!--           <td><input type="button" name="six" value="6" onclick="calculator.display.value += '6'"></td>-->
-    <!--           <td><input type="button" class="operator" name="minus" value="-" onclick="calculator.display.value += '-'"></td>-->
-    <!--        </tr>-->
-    <!--        <tr>-->
-    <!--           <td><input type="button" name="seven" value="7" onclick="calculator.display.value += '7'"></td>-->
-    <!--           <td><input type="button" name="eight" value="8" onclick="calculator.display.value += '8'"></td>-->
-    <!--           <td><input type="button" name="nine" value="9" onclick="calculator.display.value += '9'"></td>-->
-    <!--           <td><input type="button" class="operator" name="times" value="x" onclick="calculator.display.value += '*'"></td>-->
-    <!--        </tr>-->
-    <!--        <tr>-->
-    <!--           <td><input type="button" id="clear" name="clear" value="c" onclick="calculator.display.value = ''"></td>-->
-    <!--           <td><input type="button" name="zero" value="0" onclick="calculator.display.value += '0'"></td>-->
-    <!--           <td><input type="button" name="doit" value="=" onclick="calculator.display.value = eval(calculator.display.value)"></td>-->
-    <!--           <td><input type="button" class="operator" name="div" value="/" onclick="calculator.display.value += '/'"></td>-->
-    <!--        </tr>-->
-    <!--     </table>-->
-    <!--  </form>-->
-    
-    
-    
+    <!--results section-->
     <section id="results">
       <div class="container">
-        <%@all.each do |array| %>
+        <%@all.each do |array| %> <!--Iterates through the -->
         <div class="row align-items-center">
           <div class="col-lg-6 order-lg-2">
             <div class="p-5" id="img_div">
-              <img class="img-fluid rounded-circle" src="<%=array[2]%>" id="imgs">
+              <img class="col-xs-12 img-fluid rounded-circle" src="<%=array[2]%>" id="imgs">
             </div>
           </div>
           <div class="col-lg-6 order-lg-1">
             <div class="p-5">
-              <h2 class="display-4"><%=array[0]%></h2>
+              <h2 class="display-4"><%=array[0]%></h2><!---->
               <%array[1].each do |line|%>
               <h5><%=line%></h5>
               <%end%>
-              <h5>Phone: <%=array[5]%></h5>
-              <h5>Price ($-$$$$): <%=array[4]%></h5>
-              <h5>Rating: <%=array[3]%></h5>
+              <h5>Phone: <%=array[5]%></h5><!---->
+              <h5>Price ($-$$$$): <%=array[4]%></h5><!---->
+              <h5>Rating: <%=array[3]%></h5><!---->
             </div>
           </div>
         </div>
@@ -111,16 +78,6 @@
       </div>
     </section>
     
-    
-    
-    
-      
-      
-    <!--style="width:100%;height:400px;-->
-    <!--<h3>My Google Maps Demo</h3>-->
-    <!--<div id="map"></div>-->
-      
-      
     
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

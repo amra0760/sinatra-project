@@ -1,18 +1,21 @@
-body {
-  font-family: 'Lato';
-  width: 100%;
-}
+/*CSS (styling) for Result page*/
 
+/*Styling for the whole page*/
+body {
+  font-family: 'Lato'; /*links all fonts to the family "Lato*/
+  width: 100%; /*sets the body to the full width of the screen*/
+}
+/*Styling for all the headers*/
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Catamaran';
-  font-weight: 800 !important;
+  font-family: 'Catamaran'; 
+  font-weight: 800 !important; 
 }
-
+/*Styling for the "RESULTS" button */
 .btn-xl {
   text-transform: uppercase;
   padding: 1.5rem 3rem;
@@ -28,7 +31,7 @@ h6 {
 .rounded-pill {
   border-radius: 5rem;
 }
-
+/*Styling for the Navigation Bar */
 .navbar-custom {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -48,7 +51,7 @@ h6 {
   font-weight: 700;
   letter-spacing: 0.1rem;
 }
-
+/*Styling for the header*/
 header.masthead {
   position: relative;
   overflow: hidden;
@@ -110,7 +113,7 @@ header.masthead .bg-circle-4 {
   right: 35%;
 }
 
-
+/*Styling for the header on small screens (mobile)*/
 @media (max-width: 768px) {
   header.masthead {
     padding-top: 6rem;
@@ -156,12 +159,12 @@ header.masthead .bg-circle-4 {
 .btn-secondary:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
 }
-
+/*Styling for the images*/
 #imgs{
   width:500px;
   height:400px;
 }
-
+/*Styling for the images on small screens*/
 @media (max-width: 768px) {
 #imgs{
     width: 250px; 
