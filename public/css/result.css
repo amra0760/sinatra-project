@@ -128,6 +128,7 @@ header.masthead .bg-circle-4 {
   
 }
 
+/*Styling for the button*/
 .bg-primary {
   background-color: #ee0979 !important;
 }
@@ -175,8 +176,3 @@ header.masthead .bg-circle-4 {
     margin-bottom: 0px;
   }
 }
-
-/*form {*/
-/*    position: absolute;*/
-/*    border: 11px solid black;*/
-/*}*/

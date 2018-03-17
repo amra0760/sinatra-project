@@ -28,13 +28,14 @@
 
   </head>
   <body>
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#header">Cravings©</a><!---->
+        <a class="navbar-brand" href="#header">Cravings©</a><!--Creates the title of the nav bar-->
       </div>
     </nav>
     
+    <!-- Header -->
     <header class="masthead text-center text-white" id="header">
       <div>
       <div class="masthead-content">
@@ -42,35 +43,37 @@
           <h1 class="masthead-heading mb-0">Your Results For:</h1> <!--Title-->
           <h2 class="masthead-subheading mb-0"><%= params[:food].capitalize %> Near <%= params[:location] %></h2><!--Uses the user's input as part of the title "Your results for (food) near (location"-->
           <br>
-          <h3 class="masthead mb-0"><%= params[:food].capitalize %> Average Calories Per Serving: <%=@calories%> </h3>
-          <a href="#results" class="btn btn-primary btn-xl rounded-pill mt-5">Results <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+          <h3 class="masthead mb-0"><%= params[:food].capitalize %> Average Calories Per Serving: <%=@calories%> </h3> <!--Uses the user's input for food as part of the title "Average (food) calories: [calories variable]-->
+          <a href="#results" class="btn btn-primary btn-xl rounded-pill mt-5">Results <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a> <!--Results Button--> <!--(Easter Egg: linked to scroll to the top of page)-->
         </div>
       </div>
+      <!-- Creates circles -->
       <div class="bg-circle-1 bg-circle"></div>
       <div class="bg-circle-2 bg-circle"></div>
       <div class="bg-circle-3 bg-circle"></div>
       <div class="bg-circle-4 bg-circle"></div>
     </header>
     
-    <!--results section-->
+    <!-- Search Results section -->
     <section id="results">
       <div class="container">
-        <%@all.each do |array| %> <!--Iterates through the -->
+        <!--Iterates through the array created by the "all" argument -->
+        <%@all.each do |array| %> <!--For each item (restaurant) will return the following: -->
         <div class="row align-items-center">
           <div class="col-lg-6 order-lg-2">
             <div class="p-5" id="img_div">
-              <img class="col-xs-12 img-fluid rounded-circle" src="<%=array[2]%>" id="imgs">
+              <img class="col-xs-12 img-fluid rounded-circle" src="<%=array[2]%>" id="imgs"> <!-- Takes the image url of the restaurant and uses it as a image source -->
             </div>
           </div>
           <div class="col-lg-6 order-lg-1">
             <div class="p-5">
-              <h2 class="display-4"><%=array[0]%></h2><!---->
-              <%array[1].each do |line|%>
-              <h5><%=line%></h5>
+              <h2 class="display-4"><%=array[0]%></h2>
+              <%array[1].each do |line|%> <!-- Goes through the address array-->
+              <h5><%=line%></h5> <!-- prints out each address on a new line-->
               <%end%>
-              <h5>Phone: <%=array[5]%></h5><!---->
-              <h5>Price ($-$$$$): <%=array[4]%></h5><!---->
-              <h5>Rating: <%=array[3]%></h5><!---->
+              <h5>Phone: <%=array[5]%></h5><!--Returns the restaurant's phone number-->
+              <h5>Price ($-$$$$): <%=array[4]%></h5><!--Returns how pricey it is-->
+              <h5>Rating: <%=array[3]%></h5><!--Returns its 5 star rating-->
             </div>
           </div>
         </div>

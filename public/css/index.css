@@ -15,6 +15,7 @@ h6 {
   font-weight: 700;
 }
 
+/*Navigation Bar Styling*/
 .navbar-custom {
   padding-top: 0rem;
   padding-bottom: 0rem;
@@ -35,6 +36,7 @@ h6 {
   letter-spacing: 0.1rem;
 }
 
+/*Header Styling*/
 header.masthead {
   position: absolute;
   background-color: #343a40;
@@ -67,6 +69,7 @@ header.masthead h1 {
   font-size: 4rem;
 }
 
+/*Header Styling on small screens*/
 @media (max-width: 768px) {
   header.masthead {
     padding-top: 4rem;
@@ -79,67 +82,3 @@ header.masthead h1 {
     font-size: 1rem;
   }
 }
-
-    .showcase {
-        position: relative;
-        background-image: url("../img/bg-showcase-1.jpg");
-        position: absolute;
-        background-size: cover;
-        height: 100%;
-        width: 100%;
-        font-size: 2rem;
-        padding-top: 8rem;
-        padding-bottom: 8rem;
-    }
-
-    #result-btn {
-        text-align: center;
-        padding-left: 50%;
-    }
-
-    #map {
-        width: 100%;
-        height: 400px;
-        background-color: grey;
-    }
-
-    #break {
-        /*height: 30px;*/
-        background-color: color;
-        margin: auto;
-        text-align: center;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-
-    #result-img {
-        max-height: 300px;
-    }
-
-
-    /*.parallax {*/
-    /*  background-image: linear-gradient( rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5)), url("img/bg-masthead.jpg");*/
-    /*  width: 100%;*/
-    /*  background-attachment: fixed;*/
-    /*  background-position: center;*/
-    /*  background-repeat: no-repeat;*/
-    /*  background-size: cover;*/
-    /*}*/
-    #landing {
-        display: table;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-    }
-
-
-
-    /*  .showcase .showcase-text {*/
-    /*  padding: 5rem;*/
-    /*}*/
-    /*.showcase .showcase-img {*/
-    /*  min-height: 30rem;*/
-    /*  max-width: 400px;*/
-    /*  background-size: 100px;*/
-    /*}*/
-
